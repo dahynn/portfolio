@@ -84,24 +84,14 @@ export default function Home() {
     <main className="portfolio">
       <div className="db-intro" aria-hidden="true">
         <div className="db-intro-stage">
-          <svg className="db-intro-letters" viewBox="0 0 930 380" aria-hidden="true">
-            <defs>
-              <linearGradient id="db-intro-orange" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stopColor="#e24423" /><stop offset="100%" stopColor="#f47721" /></linearGradient>
-              <linearGradient id="db-intro-bluegreen" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stopColor="#16a7dc" /><stop offset="48%" stopColor="#008cbe" /><stop offset="100%" stopColor="#78c449" /></linearGradient>
-            </defs>
-            <text className="db-intro-outline db-intro-letter-d" x="42" y="307">D</text>
-            <text className="db-intro-fill db-intro-letter-d" x="42" y="307">D</text>
-            <text className="db-intro-outline db-intro-letter-b" x="326" y="307">B</text>
-            <text className="db-intro-fill db-intro-letter-b" x="326" y="307">B</text>
-            <text className="db-intro-inc" x="610" y="285">Inc.</text>
-          </svg>
+          <img className="db-intro-logo" src="/assets/db-inc-logo.png" alt="" />
+          <span className="db-intro-underline" />
           <div className="db-intro-values">
             <span className="db-intro-value db-intro-value-one">고객의 결과까지</span>
             <span className="db-intro-value db-intro-value-two">정확한 운영</span>
             <span className="db-intro-value db-intro-value-three">함께하는 개선</span>
           </div>
         </div>
-        <span className="db-intro-line" />
         <p>유다현 · S/W 엔지니어</p>
       </div>
       <PageSnap />
