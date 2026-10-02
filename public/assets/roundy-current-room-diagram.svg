@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Roundy currentRoom 조건부 정리</title>
+  <desc id="desc">새 방 B가 배정된 뒤 이전 방 A의 정리 요청이 늦게 도착합니다. Redis에서 현재 방 B와 정리 대상 A를 비교해 일치하지 않으면 삭제하지 않고 B를 유지합니다.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2 2l8 4-8 4" fill="none" stroke="#818992" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>
+      text{font-family:Pretendard,"Apple SD Gothic Neo",Arial,sans-serif;fill:#202328}
+      .eyebrow{font-size:24px;font-weight:850;letter-spacing:1.4px;fill:#747d85}
+      .heading{font-size:38px;font-weight:850;letter-spacing:-1px}
+      .body{font-size:28px;fill:#59636d}
+      .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:27px;font-weight:750}
+      .pink{fill:#d93080}.center{text-anchor:middle}
+    </style>
+  </defs>
+  <rect x="2" y="2" width="1196" height="646" rx="24" fill="#fff" stroke="#d7dade" stroke-width="3"/>
+  <text x="44" y="64" class="eyebrow">REDIS CURRENT ROOM</text>
+  <text x="44" y="112" class="heading">새 방 배정 뒤, 늦은 정리 요청</text>
+  <line x1="44" y1="137" x2="1156" y2="137" stroke="#e2e5e7" stroke-width="2"/>
+
+  <rect x="44" y="172" width="322" height="267" rx="18" fill="#fbfafb" stroke="#d7dade" stroke-width="2"/>
+  <path d="M61 173h288" stroke="#e94492" stroke-width="6" stroke-linecap="round"/>
+  <text x="70" y="221" class="eyebrow pink">01 · t0</text>
+  <text x="70" y="277" class="heading">새 방 B 배정</text>
+  <text x="70" y="324" class="body">현재 방을 B로 교체</text>
+  <rect x="68" y="359" width="274" height="57" rx="10" fill="#f4e8ef"/>
+  <text x="205" y="396" class="code center">SET currentRoom B</text>
+
+  <path d="M380 305h54" fill="none" stroke="#818992" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="445" y="172" width="310" height="267" rx="18" fill="#fafaf8" stroke="#d7dade" stroke-width="2"/>
+  <path d="M462 173h276" stroke="#818992" stroke-width="6" stroke-linecap="round"/>
+  <text x="471" y="221" class="eyebrow">02 · t1</text>
+  <text x="471" y="277" class="heading">이전 방 A 정리</text>
+  <text x="471" y="324" class="body">뒤늦게 도착한 요청</text>
+  <rect x="469" y="359" width="262" height="57" rx="10" fill="#eef0f1"/>
+  <text x="600" y="396" class="code center">cleanup(A)</text>
+
+  <path d="M769 305h54" fill="none" stroke="#818992" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="834" y="172" width="322" height="267" rx="18" fill="#fff7fb" stroke="#e9a8c9" stroke-width="2"/>
+  <path d="M851 173h288" stroke="#e94492" stroke-width="6" stroke-linecap="round"/>
+  <text x="860" y="221" class="eyebrow pink">03 · REDIS GUARD</text>
+  <text x="860" y="277" class="heading">현재 방 B 확인</text>
+  <text x="860" y="328" class="code">A ≠ B</text>
+  <text x="860" y="388" class="heading pink">삭제하지 않음</text>
+
+  <line x1="44" y1="478" x2="1156" y2="478" stroke="#e2e5e7" stroke-width="2"/>
+  <text x="44" y="525" class="eyebrow pink">LUA RULE</text>
+  <text x="44" y="576" class="code">currentRoom == roomId</text>
+  <text x="1156" y="525" class="body" text-anchor="end">일치할 때만 DEL</text>
+  <text x="1156" y="576" class="heading pink" text-anchor="end">새 방 B 유지</text>
+</svg>

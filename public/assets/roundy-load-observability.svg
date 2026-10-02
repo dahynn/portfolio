@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#070b12"/></linearGradient>
+    <linearGradient id="pink" x1="0" x2="1"><stop stop-color="#ff4fa3"/><stop offset="1" stop-color="#b946ff"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity=".28"/></filter>
+    <style>
+      .ui { font-family: Arial, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; }
+      .muted { fill:#8b97aa; font-size:14px; }
+      .label { fill:#bac4d4; font-size:14px; font-weight:700; letter-spacing:.3px; }
+      .value { fill:#f8fafc; font-size:36px; font-weight:700; }
+      .title { fill:#edf2fa; font-size:17px; font-weight:700; }
+      .small { fill:#aeb8c8; font-size:12px; }
+    </style>
+  </defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect x="0" width="224" height="900" fill="#0b1019"/>
+  <rect x="0" y="0" width="224" height="62" fill="#151c28"/>
+  <text x="24" y="39" class="ui" fill="#f6f8fb" font-size="21" font-weight="700">Roundy 모니터링</text>
+  <text x="25" y="102" class="ui small" fill="#5cce9c">●  대시보드</text>
+  <rect x="12" y="120" width="200" height="40" rx="7" fill="#1a2434"/>
+  <rect x="12" y="120" width="4" height="40" rx="2" fill="#ff4fa3"/>
+  <text x="30" y="146" class="ui" fill="#eff5fe" font-size="14" font-weight="700">매칭 부하 테스트</text>
+  <text x="30" y="195" class="ui muted">즐겨찾기</text><text x="30" y="231" class="ui muted">탐색</text><text x="30" y="267" class="ui muted">알림</text>
+  <text x="260" y="42" class="ui" fill="#f7f9fd" font-size="24" font-weight="700">매칭 부하 테스트 · 합성 사용자 9,000명</text>
+  <text x="260" y="66" class="ui muted">AWS 서울 · 앱 서버 1대 + 분리된 k6 서버 · 실행마다 Redis / MySQL 테스트 데이터 초기화</text>
+  <rect x="1190" y="20" width="210" height="32" rx="6" fill="#161f2e" stroke="#334155"/>
+  <text x="1207" y="41" class="ui small" fill="#d0d8e6">2026. 09. 14.  ·  3회 실행</text>
+  <text x="260" y="112" class="ui" fill="#d8e0ec" font-size="16" font-weight="700">전체 요약</text>
+  <g filter="url(#shadow)">
+    <rect x="260" y="130" width="270" height="152" rx="10" fill="#131c29" stroke="#263447"/>
+    <rect x="550" y="130" width="270" height="152" rx="10" fill="#131c29" stroke="#263447"/>
+    <rect x="840" y="130" width="270" height="152" rx="10" fill="#131c29" stroke="#263447"/>
+    <rect x="1130" y="130" width="270" height="152" rx="10" fill="#131c29" stroke="#263447"/>
+  </g>
+  <text x="282" y="158" class="ui label">요청 처리 성공</text><text x="282" y="207" class="ui value">27,000</text><text x="282" y="240" class="ui small">3회 × 9,000 / 9,000명</text><text x="282" y="264" class="ui" fill="#5cce9c" font-size="13">● 요청 처리 성공률 100%</text>
+  <text x="572" y="158" class="ui label">HTTP 실패</text><text x="572" y="207" class="ui value">0</text><text x="572" y="240" class="ui small">기록된 3회 실행 전체</text><text x="572" y="264" class="ui" fill="#5cce9c" font-size="13">● HTTP 실패율 0.00%</text>
+  <text x="862" y="158" class="ui label">최대 처리량</text><text x="862" y="207" class="ui value">1,109.68</text><text x="862" y="240" class="ui small">초당 요청 수 · 3차 실행</text><text x="862" y="264" class="ui" fill="#80bfff" font-size="13">↑ 1차 실행 대비 20.58%</text>
+  <text x="1152" y="158" class="ui label">최저 p95 응답 시간</text><text x="1152" y="207" class="ui value">6.34초</text><text x="1152" y="240" class="ui small">3차 실행</text><text x="1152" y="264" class="ui" fill="#5cce9c" font-size="13">↓ 1차 실행 대비 29.08%</text>
+  <g filter="url(#shadow)"><rect x="260" y="310" width="720" height="300" rx="10" fill="#131c29" stroke="#263447"/><rect x="1000" y="310" width="400" height="300" rx="10" fill="#131c29" stroke="#263447"/></g>
+  <text x="282" y="342" class="ui title">실행별 처리량</text><text x="282" y="365" class="ui small">초당 요청 수</text>
+  <line x1="312" y1="542" x2="936" y2="542" stroke="#344152"/><line x1="312" y1="486" x2="936" y2="486" stroke="#263447"/><line x1="312" y1="430" x2="936" y2="430" stroke="#263447"/><line x1="312" y1="374" x2="936" y2="374" stroke="#263447"/>
+  <text x="272" y="546" class="ui small">0</text><text x="262" y="490" class="ui small">400</text><text x="262" y="434" class="ui small">800</text><text x="253" y="378" class="ui small">1.2k</text>
+  <path d="M370 494 L600 431 L840 430" fill="none" stroke="url(#pink)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="370" cy="494" r="7" fill="#ff4fa3"/><circle cx="600" cy="431" r="7" fill="#d249df"/><circle cx="840" cy="430" r="7" fill="#b946ff"/>
+  <text x="330" y="575" class="ui label">1차 실행</text><text x="557" y="575" class="ui label">2차 실행</text><text x="797" y="575" class="ui label">3차 실행</text>
+  <text x="334" y="474" class="ui" fill="#f8fafc" font-size="15" font-weight="700">920.30</text><text x="565" y="411" class="ui" fill="#f8fafc" font-size="15" font-weight="700">1,106.03</text><text x="806" y="410" class="ui" fill="#f8fafc" font-size="15" font-weight="700">1,109.68</text>
+  <text x="1022" y="342" class="ui title">p95 응답 시간</text><text x="1022" y="365" class="ui small">초 · 낮을수록 좋음</text>
+  <text x="1022" y="421" class="ui label">1차 실행</text><rect x="1110" y="404" width="237" height="20" rx="4" fill="#273243"/><rect x="1110" y="404" width="225" height="20" rx="4" fill="#ff4fa3"/><text x="1357" y="421" class="ui" fill="#f4f7fc" font-size="14" font-weight="700">8.94초</text>
+  <text x="1022" y="481" class="ui label">2차 실행</text><rect x="1110" y="464" width="237" height="20" rx="4" fill="#273243"/><rect x="1110" y="464" width="185" height="20" rx="4" fill="#d249df"/><text x="1357" y="481" class="ui" fill="#f4f7fc" font-size="14" font-weight="700">7.36초</text>
+  <text x="1022" y="541" class="ui label">3차 실행</text><rect x="1110" y="524" width="237" height="20" rx="4" fill="#273243"/><rect x="1110" y="524" width="159" height="20" rx="4" fill="#b946ff"/><text x="1357" y="541" class="ui" fill="#f4f7fc" font-size="14" font-weight="700">6.34초</text>
+  <g filter="url(#shadow)"><rect x="260" y="640" width="1140" height="184" rx="10" fill="#131c29" stroke="#263447"/></g>
+  <text x="282" y="674" class="ui title">실행 검증 요약</text>
+  <line x1="282" y1="696" x2="1378" y2="696" stroke="#263447"/>
+  <text x="300" y="726" class="ui small">실행</text><text x="448" y="726" class="ui small">요청 처리 성공</text><text x="650" y="726" class="ui small">HTTP 실패</text><text x="875" y="726" class="ui small">처리량</text><text x="1115" y="726" class="ui small">p95</text><text x="1255" y="726" class="ui small">방 배정</text>
+  <line x1="282" y1="742" x2="1378" y2="742" stroke="#202c3c"/><line x1="282" y1="778" x2="1378" y2="778" stroke="#202c3c"/>
+  <text x="300" y="766" class="ui" fill="#eff4fc" font-size="14">1차</text><text x="448" y="766" class="ui" fill="#5cce9c" font-size="14">9,000 / 9,000</text><text x="650" y="766" class="ui" fill="#5cce9c" font-size="14">0</text><text x="875" y="766" class="ui" fill="#eff4fc" font-size="14">920.30 req/s</text><text x="1115" y="766" class="ui" fill="#eff4fc" font-size="14">8.94초</text><text x="1255" y="766" class="ui" fill="#5cce9c" font-size="14">9,000명 배정</text>
+  <text x="300" y="802" class="ui" fill="#eff4fc" font-size="14">2차</text><text x="448" y="802" class="ui" fill="#5cce9c" font-size="14">9,000 / 9,000</text><text x="650" y="802" class="ui" fill="#5cce9c" font-size="14">0</text><text x="875" y="802" class="ui" fill="#eff4fc" font-size="14">1,106.03 req/s</text><text x="1115" y="802" class="ui" fill="#eff4fc" font-size="14">7.36초</text><text x="1255" y="802" class="ui" fill="#5cce9c" font-size="14">9,000명 배정</text>
+</svg>

@@ -1,0 +1,17 @@
+{
+  "title": "SAN 서버 검색 측정 발췌",
+  "sourceRevision": "1c8c252",
+  "sourceFile": "backend/benchmarks/card-query/results/2026-09-08/summary.json",
+  "kind": "원본 결과 중 10,000건 비교 항목의 발췌. 새로운 실행 결과가 아닙니다.",
+  "environment": "로컬 합성 데이터, 동일 앱/DB, 워밍업 3회, 반복 20회",
+  "datasetSize": 10000,
+  "firstPageP95Ms": { "before": 128.150083, "after": 28.4975 },
+  "searchFirstPageP95Ms": { "before": 133.670958, "after": 19.040875 },
+  "searchResultSetMatches": true,
+  "baselineSearchCount": 59,
+  "optimizedSearchCount": 59,
+  "otherUserOnly": true,
+  "crossUserCategoryResultCount": 0,
+  "pageOrderStableAcrossTwoReads": true,
+  "scope": "운영 성능이나 실사용자 체감 수치가 아닙니다. 작은 데이터 규모에서는 결과가 일관되게 개선되지 않아, 데이터 규모별로 분리해 해석해야 합니다."
+}

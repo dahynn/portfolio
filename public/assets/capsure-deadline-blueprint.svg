@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" role="img" aria-labelledby="title desc">
+  <title id="title">유예 종료 시점을 기준으로 한 계약 상태 판단 흐름</title>
+  <desc id="desc">수납 전 계약을 잠그고 배치와 같은 만료 기준을 적용합니다. 기한 안에 완납하면 수납 후 계약이 활성화되고, 기한 후 입금은 계약을 실효 상태로 유지한 채 수납 후 지연 검토를 기록합니다.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#116eaa"/>
+    </marker>
+    <style>
+      text{font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#182330}
+      .lane{fill:#f3f6f8;stroke:#d9e0e5;stroke-width:1.5}
+      .rule{fill:#f2f9fd;stroke:#68bce5;stroke-width:1.5}
+      .node{fill:#fff;stroke:#b9c8d2;stroke-width:1.5}
+      .good{fill:#f2f9fd;stroke:#78b8d9;stroke-width:1.5}
+      .warn{fill:#fff9e8;stroke:#dabf72;stroke-width:1.5}
+      .flow{fill:none;stroke:#116eaa;stroke-width:1.8;marker-end:url(#arrow)}
+      .guide{stroke:#aeb8c1;stroke-width:1.5;stroke-dasharray:5 5}
+      .label{font-size:17px;font-weight:800}
+      .sub{font-size:14px;fill:#52616d}
+      .row{font-size:15px;font-weight:900}
+      .title{font-size:16px;font-weight:800}
+      .status{font-size:16px;font-weight:900;fill:#116eaa}
+      .warning{fill:#9c6a00}
+    </style>
+  </defs>
+
+  <rect x="4" y="4" width="992" height="532" rx="18" fill="#ffffff" stroke="#dce3e7"/>
+  <text x="30" y="36" class="label">입금 시점으로 보는 동일 정책</text>
+  <text x="970" y="36" class="sub" text-anchor="end">수납과 배치가 같은 만료 기준을 사용합니다</text>
+
+  <rect x="180" y="54" width="236" height="78" rx="10" class="lane"/>
+  <rect x="432" y="54" width="286" height="78" rx="10" class="lane"/>
+  <rect x="734" y="54" width="236" height="78" rx="10" class="lane"/>
+  <g fill="none" stroke="#116eaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="288" y="62" width="20" height="13" rx="2"/><path d="M288 67h20M303 72h2"/>
+    <rect x="565" y="68" width="20" height="13" rx="3"/><path d="M569 68v-3a6 6 0 0 1 12 0v3M575 73v3"/>
+    <circle cx="852" cy="70" r="10"/><path d="M852 64v7l5 3"/>
+  </g>
+  <text x="298" y="101" text-anchor="middle" class="label">Payment arrival</text>
+  <text x="298" y="122" text-anchor="middle" class="sub">(입금 요청 도착)</text>
+  <text x="575" y="101" text-anchor="middle" class="label">계약 잠금 · beforeSettlement</text>
+  <text x="575" y="122" text-anchor="middle" class="sub">(계약 잠금 · 만료 기준 확인)</text>
+  <text x="852" y="101" text-anchor="middle" class="label">afterSettlement</text>
+  <text x="852" y="122" text-anchor="middle" class="sub">(수납 후 상태·검토 기록)</text>
+
+  <rect x="180" y="148" width="790" height="44" rx="9" class="rule"/>
+  <text x="575" y="176" text-anchor="middle" class="title">통일한 기준 · 계약 만료일(유예 종료일)을 업무 날짜로 판단</text>
+
+  <rect x="18" y="210" width="964" height="128" rx="14" fill="#f1f8fc"/>
+  <rect x="18" y="384" width="964" height="128" rx="14" fill="#fff9e8"/>
+  <line x1="575" y1="200" x2="575" y2="520" class="guide"/>
+
+  <text x="30" y="264" class="row" fill="#116eaa">기한 안에 완납</text>
+  <text x="30" y="289" class="sub">(모든 미납 회차 해소)</text>
+  <rect x="180" y="222" width="236" height="104" rx="11" class="node"/>
+  <text x="298" y="263" text-anchor="middle" class="title">입금 도착</text>
+  <text x="298" y="293" text-anchor="middle" class="sub">(완납 요청)</text>
+  <path d="M416 274 H450" class="flow"/>
+  <rect x="450" y="222" width="250" height="104" rx="11" class="good"/>
+  <text x="575" y="263" text-anchor="middle" class="title">만료일 이전 확인</text>
+  <text x="575" y="293" text-anchor="middle" class="status">수납 진행</text>
+  <path d="M700 274 H752" class="flow"/>
+  <rect x="752" y="222" width="200" height="104" rx="11" class="node"/>
+  <text x="852" y="263" text-anchor="middle" class="title">계약 활성화</text>
+  <text x="852" y="293" text-anchor="middle" class="sub">(완납 후 ACTIVE)</text>
+
+  <rect x="510" y="344" width="130" height="34" rx="17" fill="#eef2f5"/>
+  <text x="575" y="366" text-anchor="middle" class="sub">유예 종료</text>
+
+  <text x="30" y="438" class="row warning">기한 후 입금</text>
+  <text x="30" y="463" class="sub">(다음 날 · 배치 실행 전)</text>
+  <rect x="180" y="396" width="236" height="104" rx="11" class="warn"/>
+  <text x="298" y="437" text-anchor="middle" class="title">입금 도착</text>
+  <text x="298" y="467" text-anchor="middle" class="sub">(기한 후 수납 요청)</text>
+  <path d="M416 448 H450" class="flow"/>
+  <rect x="450" y="396" width="250" height="104" rx="11" class="warn"/>
+  <text x="575" y="437" text-anchor="middle" class="title">만료일 이후 확인</text>
+  <text x="575" y="467" text-anchor="middle" class="status warning">LAPSED로 전이</text>
+  <path d="M700 448 H752" class="flow"/>
+  <rect x="752" y="396" width="200" height="104" rx="11" class="warn"/>
+  <text x="852" y="437" text-anchor="middle" class="title">수납 후 지연 검토</text>
+  <text x="852" y="467" text-anchor="middle" class="sub">(검토 1건 · LAPSED 유지)</text>
+
+  <text x="575" y="527" text-anchor="middle" class="sub">입금은 기록하되, 계약을 자동으로 되살리지 않습니다.</text>
+</svg>

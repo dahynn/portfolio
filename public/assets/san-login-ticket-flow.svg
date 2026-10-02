@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 410" role="img" aria-labelledby="title desc">
+  <title id="title">SAN 일회용 로그인 티켓 흐름</title>
+  <desc id="desc">대시보드가 서버에 로그인 티켓 발급을 요청합니다. 서버는 토큰과 출처를 확인해 Redis에 저장하고 대시보드에 반환합니다. 대시보드는 메시지로 크롬 익스텐션에 티켓을 전달하고, 익스텐션의 교환 요청을 받은 서버가 Redis에서 티켓을 한 번만 소비합니다. 만료 또는 재사용된 티켓은 거절됩니다.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 9 5 1 9" fill="none" stroke="#4f9482" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>text{font-family:Pretendard,"Noto Sans KR",Arial,sans-serif}.step{font-size:17px;font-weight:850;letter-spacing:.7px;fill:#4f9482}.title{font-size:30px;font-weight:900;fill:#1b3027}.detail{font-size:18px;font-weight:650;fill:#667a6f}.branch{font-size:23px;font-weight:900;fill:#a75c56}.branchSub{font-size:17px;font-weight:700;fill:#85645f}.link{fill:none;stroke:#4f9482;stroke-width:2.5;stroke-linecap:round;marker-end:url(#arrow)}</style>
+  </defs>
+  <text x="48" y="32" font-size="15" font-weight="850" letter-spacing="2" fill="#7f998a">일회용 로그인 브리지</text>
+  <path d="M150 139H443" class="link"/><path d="M545 139H838" class="link"/><path d="M940 139H1233" class="link"/>
+  <circle cx="106" cy="139" r="18" fill="#e0eee4" stroke="#79ad91" stroke-width="2"/><circle cx="106" cy="139" r="5" fill="#4f9482"/>
+  <circle cx="501" cy="139" r="18" fill="#d7eadb" stroke="#4f9482" stroke-width="2"/><circle cx="501" cy="139" r="5" fill="#4f9482"/>
+  <circle cx="896" cy="139" r="18" fill="#e0eee4" stroke="#79ad91" stroke-width="2"/><circle cx="896" cy="139" r="5" fill="#4f9482"/>
+  <circle cx="1291" cy="139" r="18" fill="#e0eee4" stroke="#79ad91" stroke-width="2"/><circle cx="1291" cy="139" r="5" fill="#4f9482"/>
+  <g transform="translate(40 0)"><text y="84" class="step">01 / 대시보드</text><text y="212" class="title">발급 요청</text><text y="246" class="detail">access token을 서버로</text></g>
+  <g transform="translate(435 0)"><text y="84" class="step">02 / 백엔드</text><text y="212" class="title">검증·발급</text><text y="246" class="detail">출처 확인 후 Redis 저장</text></g>
+  <g transform="translate(830 0)"><text y="84" class="step">03 / 대시보드</text><text y="212" class="title">티켓 전달</text><text y="246" class="detail">익스텐션에 메시지 전송</text></g>
+  <g transform="translate(1225 0)"><text y="84" class="step">04 / 크롬 익스텐션</text><text y="212" class="title">서버 교환 요청</text><text y="246" class="detail">서버에서 1회 소비</text></g>
+  <path d="M478 285h208c0 10 8 18 18 18v33c-10 0-18 8-18 18H478c0-10-8-18-18-18v-33c10 0 18-8 18-18Z" fill="#f5faf6" stroke="#82b39b" stroke-width="2"/>
+  <path d="M507 290v59" stroke="#aacbb8" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="582" y="326" text-anchor="middle" font-size="17" font-weight="800" fill="#3f7b67">tk_9a3f…e7c2</text>
+  <path d="M1291 268v30h-18" fill="none" stroke="#bf8278" stroke-width="2"/>
+  <path d="M1273 298H1060M1273 298h255" fill="none" stroke="#bf8278" stroke-width="2"/>
+  <circle cx="1060" cy="298" r="4" fill="#bf8278"/><circle cx="1528" cy="298" r="4" fill="#bf8278"/>
+  <text x="1060" y="338" class="branch">만료</text><text x="1060" y="367" class="branchSub">로그인 차단</text>
+  <text x="1430" y="338" class="branch">재사용</text><text x="1430" y="367" class="branchSub">로그인 차단</text>
+</svg>
