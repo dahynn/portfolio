@@ -2520,15 +2520,17 @@ a { color:inherit; text-decoration:none; }
 #introduction .profile-details>h1.cover-platform-title {
   display:grid;
   grid-template-columns:max-content minmax(0,1fr);
-  column-gap:.22em;
-  width:100%;
-  max-width:none;
+  column-gap:.34em;
+  row-gap:.12em;
+  width:max-content;
+  max-width:100%;
+  align-self:center;
   margin:0;
   color:#fff;
   font-family:'IBM Plex Sans KR',Pretendard Variable,Pretendard,sans-serif;
   font-size:clamp(1.3rem,2.75vw,3.05rem);
   font-weight:700;
-  letter-spacing:-.065em;
+  letter-spacing:-.055em;
   line-height:1.33;
   word-break:keep-all;
 }
@@ -2596,6 +2598,8 @@ a { color:inherit; text-decoration:none; }
   #introduction .profile-intro { min-width:0; }
   #introduction .profile-details { min-width:0; width:100%; overflow:hidden; }
   #introduction .profile-details>h1.cover-platform-title {
+    width:100%;
+    align-self:stretch;
     font-size:clamp(1.16rem,4.2vw,1.8rem);
     line-height:1.35;
   }
