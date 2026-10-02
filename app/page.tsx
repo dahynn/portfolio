@@ -1,6 +1,6 @@
 /* oxlint-disable next/no-img-element -- 원본 GIF 애니메이션과 고정 비율 포트폴리오 자산을 그대로 표시합니다. */
 import { PageSnap } from '../components/PageSnap';
-import { ArrowDown, CheckCircle2, Mail, UserRound, UsersRound } from 'lucide-react';
+import { ArrowDown, CheckCircle2, Mail, MousePointer2, UserRound, UsersRound } from 'lucide-react';
 import { ProjectCaseStudies } from '../components/ProjectCaseStudies';
 import { PersonalStrengths } from '../components/PersonalStrengths';
 import { SkillCriteria } from '../components/SkillCriteria';
@@ -74,7 +74,7 @@ const skillLevelLabels = ['기초', '초급', '중급', '고급', '전문가'];
 function BrandLogo() {
   return (
     <span className="hanwha-logo db-brand">
-      <img src="/assets/db-inc-logo.png" alt="DB Inc." />
+      <img src="/assets/db-inc-lockup.png" alt="DB Inc." />
     </span>
   );
 }
@@ -84,12 +84,11 @@ export default function Home() {
     <main className="portfolio">
       <div className="db-intro" aria-hidden="true">
         <div className="db-intro-stage">
-          <img className="db-intro-logo" src="/assets/db-inc-logo.png" alt="" />
-          <span className="db-intro-underline" />
+          <img className="db-intro-logo" src="/assets/db-inc-lockup.png" alt="" />
           <div className="db-intro-values">
-            <span className="db-intro-value db-intro-value-one">고객의 결과까지</span>
-            <span className="db-intro-value db-intro-value-two">정확한 운영</span>
-            <span className="db-intro-value db-intro-value-three">함께하는 개선</span>
+            <span className="db-intro-value db-intro-value-one">고객가치 우선</span>
+            <span className="db-intro-value db-intro-value-two">탐구하는 자세</span>
+            <span className="db-intro-value db-intro-value-three">솔선수범 자기관리</span>
           </div>
         </div>
         <p>유다현 · S/W 엔지니어</p>
@@ -119,7 +118,12 @@ export default function Home() {
           </section>
         </div>
         <div className="profile-details">
-          <h1 id="portfolio-title"><span className="cover-title-line">고객의 요청 한 번부터,</span><span className="cover-title-line">운영 결과의 마지막 숫자까지,</span><span className="cover-title-line cover-title-follow"><span className="cover-title-highlight"><em>끝까지</em> 따라가는</span> <em>S/W 엔지니어</em></span></h1>
+          <h1 id="portfolio-title" className="cover-platform-title">
+            <span className="cover-platform-prefix">고객의</span>
+            <span className="cover-platform-line cover-platform-first"><em className="cover-insurance-word">보험<MousePointer2 aria-hidden="true" /></em> 가입부터</span>
+            <span className="cover-platform-line cover-platform-data">데이터의 <em className="cover-platform-data-accent">마지막 줄</em>까지,</span>
+            <span className="cover-platform-line cover-platform-conclusion"><span className="cover-title-highlight"><em>끝까지 따라가는</em></span> <span className="cover-platform-role">S/W 엔지니어</span></span>
+          </h1>
           <PersonalStrengths />
         </div>
         <BrandLogo />
@@ -152,9 +156,8 @@ export default function Home() {
               <div className="journey-copy">
                 <strong className={
                   activity.title === "IT 소모임장 'ProMIS'" ? 'role-journey-highlight journey-highlight-orange'
-                    : activity.title.startsWith('GDSC(') ? 'role-journey-highlight journey-highlight-blue'
-                      : activity.title === '삼성청년SW·AI 아카데미 14기' ? 'role-journey-highlight journey-highlight-green'
-                        : activity.title === '한화금융캠퍼스 15기' ? 'role-journey-highlight journey-highlight-lime'
+                    : activity.title === '삼성청년SW·AI 아카데미 14기' ? 'role-journey-highlight journey-highlight-blue'
+                        : activity.title === '한화금융캠퍼스 15기' ? 'role-journey-highlight journey-highlight-green'
                           : undefined
                 }>{activity.title}</strong>
                 {'gpa' in activity && <span className="journey-gpa" aria-label={`학점 ${activity.gpa}`}>GPA {activity.gpa}</span>}
