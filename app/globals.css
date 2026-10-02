@@ -1786,7 +1786,7 @@ a { color:inherit; text-decoration:none; }
   bottom:-.03em;
   left:-.06em;
   height:.78em;
-  background:linear-gradient(100deg,#00854a,#40ad75);
+  background:url('/assets/db-orange-marker.webp') center / 100% 100% no-repeat;
   content:"";
   opacity:.9;
   clip-path:inset(0 100% 0 0);
@@ -2158,17 +2158,23 @@ a { color:inherit; text-decoration:none; }
 
 /* 첫 장면에서 DB 글자의 윤곽을 먼저 그린 뒤 세 가지 일하는 기준을 펼칩니다. */
 .db-intro { animation:db-intro-away .55s 2.9s ease-in forwards; }
-.db-intro-stage { position:relative; width:min(78vw,690px); }
+.db-intro-stage { width:min(90vw,850px); }
 .db-intro-letters { display:block; width:100%; height:auto; overflow:visible; }
 .db-intro-letters text { font-family:Pretendard Variable, Pretendard, sans-serif; font-size:350px; font-weight:900; letter-spacing:-.1em; }
-.db-intro-outline { fill:none; stroke:url(#db-intro-gradient); stroke-width:3; stroke-linejoin:round; stroke-dasharray:2500; stroke-dashoffset:2500; animation:db-letter-trace 1.45s .05s cubic-bezier(.2,.7,.2,1) forwards; }
-.db-intro-fill { fill:url(#db-intro-gradient); opacity:0; clip-path:inset(0 100% 0 0); animation:db-letter-fill 1.15s .72s ease-out forwards; }
+.db-intro-outline { fill:none; stroke-width:3; stroke-linejoin:round; stroke-dasharray:2500; stroke-dashoffset:2500; animation:db-letter-trace 1.45s .05s cubic-bezier(.2,.7,.2,1) forwards; }
+.db-intro-fill { opacity:0; clip-path:inset(0 100% 0 0); animation:db-letter-fill 1.15s .72s ease-out forwards; }
+.db-intro-letter-d.db-intro-outline { stroke:url(#db-intro-orange); }
+.db-intro-letter-d.db-intro-fill { fill:url(#db-intro-orange); }
+.db-intro-letter-b.db-intro-outline { stroke:url(#db-intro-bluegreen); }
+.db-intro-letter-b.db-intro-fill { fill:url(#db-intro-bluegreen); }
+.db-intro-letters .db-intro-inc { fill:#00854a; font-size:112px; font-weight:800; letter-spacing:-.08em; opacity:0; animation:db-intro-label .45s 1.15s ease-out forwards; }
 @keyframes db-letter-trace { to { stroke-dashoffset:0; } }
 @keyframes db-letter-fill { 15% { opacity:1; } to { opacity:1; clip-path:inset(0 0 0 0); } }
-.db-intro-value { position:absolute; z-index:2; padding:.4rem .7rem; border:1px solid #d4e9dc; border-radius:999px; background:rgba(255,255,255,.94); box-shadow:0 .4rem 1rem rgba(10,63,37,.08); color:#14563a; font-size:clamp(.7rem,1.1vw,.9rem); font-weight:800; white-space:nowrap; opacity:0; transform:translateY(10px); animation:db-value-enter .45s ease-out forwards; }
-.db-intro-value-one { top:9%; left:2%; animation-delay:.55s; }
-.db-intro-value-two { top:31%; right:1%; animation-delay:1s; }
-.db-intro-value-three { right:12%; bottom:4%; animation-delay:1.4s; }
+.db-intro-values { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(.4rem,1.7vw,1rem); width:100%; margin:.15rem 0 .8rem; }
+.db-intro-value { display:flex; align-items:center; justify-content:center; min-width:0; min-height:2.5rem; padding:.4rem .7rem; border:1px solid; border-radius:999px; background:#fff; box-shadow:0 .4rem 1rem rgba(10,63,37,.08); font-size:clamp(.7rem,1.1vw,.9rem); font-weight:800; white-space:nowrap; opacity:0; transform:translateY(10px); animation:db-value-enter .45s ease-out forwards; }
+.db-intro-value-one { border-color:#f6c4a5; color:#c75616; animation-delay:.85s; }
+.db-intro-value-two { border-color:#a6dff1; color:#087ca7; animation-delay:1.05s; }
+.db-intro-value-three { border-color:#b9df9e; color:#40832c; animation-delay:1.25s; }
 @keyframes db-value-enter { to { opacity:1; transform:translateY(0); } }
 .db-intro-line { width:min(32vw,260px); margin:.05rem 0 .65rem; animation-delay:1.7s; }
 .db-intro p { animation-delay:1.85s; }
@@ -2179,9 +2185,7 @@ a { color:inherit; text-decoration:none; }
 .journey-highlight-lime::before { background:rgba(121,196,73,.25); }
 @media (max-width:760px) {
   .db-intro-stage { width:92vw; }
-  .db-intro-letters text { font-size:350px; }
-  .db-intro-value { padding:.3rem .48rem; font-size:.58rem; }
-  .db-intro-value-three { right:2%; }
+  .db-intro-value { min-height:2rem; padding:.3rem .22rem; font-size:.62rem; }
 }
 @media (prefers-reduced-motion:reduce) {
   .db-intro-letters text,.db-intro-value { animation:none; }
